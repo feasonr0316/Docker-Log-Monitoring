@@ -1,0 +1,43 @@
+services:
+  collector:
+    build:
+      context: .
+      dockerfile: collector/Dockerfile
+    container_name: docker-log-collector
+    restart: unless-stopped
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./collector:/app/collector
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      monitor.exclude: "true"
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: docker-log-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./collector:/app/collector
+    depends_on:
+      - collector
+    labels:
+      monitor.exclude: "true"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: docker-log-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    labels:
+      monitor.exclude: "true"
+

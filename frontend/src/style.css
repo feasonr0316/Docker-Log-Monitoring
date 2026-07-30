@@ -1,0 +1,111 @@
+body {
+    margin:0;
+    font-family:
+    Arial,
+    "Microsoft YaHei",
+    sans-serif;
+    background:#f5f7fb;
+}
+
+
+.container {
+    width:90%;
+    margin:auto;
+}
+
+
+h1 {
+    text-align:center;
+    font-size:48px;
+    margin:40px;
+}
+
+
+
+.cards {
+    display:flex;
+    justify-content:center;
+    gap:40px;
+}
+
+
+
+.card {
+
+    width:260px;
+    height:160px;
+
+    background:white;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.1);
+
+    text-align:center;
+
+}
+
+
+.card h3 {
+
+    margin-top:30px;
+
+    color:#666;
+
+}
+
+
+.card p {
+
+    font-size:50px;
+
+    color:#409eff;
+
+}
+
+
+
+table {
+
+    width:100%;
+
+    background:white;
+
+    border-collapse:collapse;
+
+}
+
+
+th,td {
+
+    padding:12px;
+
+    border-bottom:1px solid #ddd;
+
+    text-align:left;
+
+}
+
+
+
+th {
+
+    background:#409eff;
+
+    color:white;
+
+}
+
+
+td {
+
+    max-width:300px;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
